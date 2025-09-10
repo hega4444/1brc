@@ -24,6 +24,29 @@ Palembang;38.8
 
 The challenge tests the limits of data processing performance, requiring careful optimization of I/O, parsing, and aggregation operations.
 
+## Two Approaches
+
+This repository explores two fundamentally different approaches to solving the 1BRC:
+
+### 1. Highly Optimized Python (PyPy)
+A performance-focused implementation that pushes Python to its limits using:
+- PyPy's JIT compiler for maximum speed
+- Multiprocessing to leverage all CPU cores
+- Direct byte manipulation to avoid string overhead
+- Custom parsing functions with ASCII arithmetic
+- Memory-efficient data structures
+
+**Trade-offs**: Maximum performance at the cost of code complexity and maintainability.
+
+### 2. Simple and Elegant (DuckDB)
+A pragmatic approach using DuckDB's SQL engine:
+- Clean, readable SQL queries
+- Automatic optimization by the database engine
+- Built-in CSV parsing and aggregation
+- Easy to understand and modify
+
+**Trade-offs**: Slightly slower but dramatically simpler and more maintainable code.
+
 ## Installation
 
 ### Prerequisites
