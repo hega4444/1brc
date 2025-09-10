@@ -75,9 +75,8 @@ Run both implementations and compare results:
 
 This will:
 - Execute both implementations
-- Show execution times with colored output
-- Compare results to ensure correctness
 - Display performance metrics
+- Compare results to ensure correctness
 
 ## Pure Python Optimizations
 
