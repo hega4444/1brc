@@ -120,10 +120,13 @@ Leveraging all available CPU cores by splitting the file into chunks and process
 ### 3. Reading Bytes Instead of Strings
 Working directly with bytes (`rb` mode) eliminates the overhead of UTF-8 decoding, which is unnecessary since we only need to parse ASCII numbers and station names.
 
-### 4. Replacing Dictionary Values with Arrays
+### 4. Integer Instead of Float Operations
+Converting temperature measurements to integers by multiplying by 10 (e.g., 12.3 becomes 123) eliminates floating-point arithmetic overhead. All calculations are performed on integers and the final result is divided by 10 for display.
+
+### 5. Replacing Dictionary Values with Arrays
 Using `array.array('l', [min, max, sum, count])` instead of regular Python lists or dictionaries for storing statistics. This reduces memory overhead and improves cache locality.
 
-### 5. Custom `to_int()` Implementation
+### 6. Custom `to_int()` Implementation
 A highly optimized function that converts byte strings representing decimal numbers directly to integers without intermediate string conversions. This uses ASCII value arithmetic to parse numbers in a single pass.
 
 ## Lessons Learned
@@ -141,6 +144,7 @@ When efficiency is critical, the choice of data structure can make or break perf
 - **CPU**: Intel(R) Core(TM) i7-10870H @ 2.20GHz (8 cores, 16 threads)
 - **Architecture**: x86_64
 - **Memory**: 16GB RAM
+- **Storage**: NVMe SSD 
 - **OS**: Ubuntu 22.04 
 
 Performance optimizations are highly dependent on the target architecture. For example:
