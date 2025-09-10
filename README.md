@@ -45,7 +45,7 @@ A pragmatic approach using DuckDB's SQL engine:
 - Built-in CSV parsing and aggregation
 - Easy to understand and modify
 
-**Trade-offs**: Slightly slower but dramatically simpler and more maintainable code.
+**Trade-offs**: More dependant on external libraries but dramatically simpler and more maintainable code.
 
 ## Installation
 
