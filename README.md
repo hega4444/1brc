@@ -1,5 +1,11 @@
 # 1 Billion Row Challenge (1BRC) - Python Implementation
 
+<div align="center">
+
+![Performance Statistics](stats.png)
+
+</div>
+
 ## About the Challenge
 
 The 1 Billion Row Challenge (1BRC) is a performance challenge that involves processing 1 billion temperature measurements from weather stations. The task is to calculate the minimum, maximum, and average temperature for each weather station and present the results sorted by station name.
@@ -86,7 +92,7 @@ The following optimizations were implemented in order of importance:
 PyPy's Just-In-Time (JIT) compiler provides significant speedups for CPU-intensive Python code, especially for loops and mathematical operations. This single change can provide 3-10x performance improvements.
 
 ### 2. Multiprocessing
-Leveraging all available CPU cores by splitting the file into chunks and processing them in parallel. The implementation uses `min(cpu_count(), MAX_CPU_COUNT)` processes to avoid oversubscription. **MAX_CPU_COUNT=10** was a value that showed the best results on my hardware, based on several tests. 
+Leveraging all available CPU cores by splitting the file into chunks and processing them in parallel. The implementation uses `min(cpu_count(), MAX_CPU_COUNT)` processes to avoid oversubscription. **MAX_CPU_COUNT=11** was a value that showed the best results on my hardware, based on several tests. 
 
 ### 3. Reading Bytes Instead of Strings
 Working directly with bytes (`rb` mode) eliminates the overhead of UTF-8 decoding, which is unnecessary since we only need to parse ASCII numbers and station names.
@@ -112,7 +118,7 @@ When efficiency is critical, the choice of data structure can make or break perf
 - **CPU**: Intel(R) Core(TM) i7-10870H @ 2.20GHz (8 cores, 16 threads)
 - **Architecture**: x86_64
 - **Memory**: 16GB RAM
-- **OS**: Ubuntu 22.04 (Linux 6.8.0-79-generic)
+- **OS**: Ubuntu 22.04 
 
 Performance optimizations are highly dependent on the target architecture. For example:
 - Memory mapping (`mmap`) performs better on some systems (like M1 Macs) but adds overhead on Linux x86_64

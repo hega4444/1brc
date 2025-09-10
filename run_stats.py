@@ -10,7 +10,7 @@ def run_pypy():
         ["pypy3", "test_pypy.py"], capture_output=True, text=True
     )
     end = time.time()
-    print(f"🐍 \033[92mPyPy execution time: {end - start:.2f} s\033[0m\n")
+    print(f"   \033[92mPyPy execution time: {end - start:.2f} s\033[0m\n")
     return result.stdout.strip(), result.returncode
 
 
@@ -21,7 +21,7 @@ def run_duckdb():
         ["uv", "run", "python", "test_duckdb.py"], capture_output=True, text=True
     )
     end = time.time()
-    print(f"🦆 \033[92mDuckDB execution time: {end - start:.2f} s\033[0m")
+    print(f"   \033[92mDuckDB execution time: {end - start:.2f} s\033[0m")
     return result.stdout.strip(), result.returncode
 
 
